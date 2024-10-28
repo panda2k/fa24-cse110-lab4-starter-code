@@ -20,7 +20,7 @@ test('delete expense works', () => {
     fireEvent.click(screen.getByTestId("save-button"))
 
     fireEvent.click(screen.getByText("x"))
-    expect(queryByText("Food")).not.toBeNull();
+    expect(queryByText("Food")).toBeNull();
     expect(queryByText("$300")).toBeNull();
     expect(screen.getByText("Remaining: $2000")).toBeInTheDocument();
     expect(screen.getByText("Spent so far: $0")).toBeInTheDocument();
