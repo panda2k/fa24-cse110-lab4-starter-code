@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
+import { createExpense } from "../../utils/expense-utils";
 
 const randomId = () => {
     return `${Math.random() * 10000}`
@@ -17,7 +18,9 @@ const AddExpenseForm = () => {
         event.preventDefault();
 
         // Exercise: Add add new expense to expenses context array
-        setExpenses([...expenses, { name, cost, id: randomId() }])
+        const id = randomId();
+        createExpense({ description: name, cost, id });
+        setExpenses([...expenses, { description: name, cost, id }])
     };
 
     return (
